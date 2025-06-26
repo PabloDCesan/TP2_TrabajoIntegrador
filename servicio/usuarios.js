@@ -36,6 +36,21 @@ class Servicio {
         await UsuarioModel.updateOne({ _id: id }, { rol: nuevoRol });
         return await this.verDetalle(id);
     };
+
+    borrar = async (id) => {
+        const usuario = await UsuarioModel.findById(id);
+        if (!usuario) {
+            throw new Error('Usuario no encontrado');
+        }
+        
+        // Verificar que no se borre a sí mismo
+        if (usuario.rol === 'admin') {
+            throw new Error('No se puede borrar un administrador');
+        }
+        
+        await UsuarioModel.findByIdAndDelete(id);
+        return { mensaje: 'Usuario eliminado correctamente' };
+    };
 }
 
 export default Servicio;

@@ -13,12 +13,13 @@ class Router {
     start() {
         const router = express.Router();
 
-        router.post('/registro', this.#controlador.registrar);
+        router.post('/registro', verificarToken, soloAdmin, this.#controlador.registrar);
         router.post('/login', this.#controlador.login);
 
         router.get('/', verificarToken, soloAdmin, this.#controlador.listar);
         router.get('/:id', verificarToken, soloAdmin, this.#controlador.verDetalle);
         router.put('/:id/rol', verificarToken, soloAdmin, this.#controlador.cambiarRol);
+        router.delete('/:id', verificarToken, soloAdmin, this.#controlador.borrar);
 
         return router;
     }

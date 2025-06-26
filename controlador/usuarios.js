@@ -43,6 +43,15 @@ class Controlador {
             res.status(400).json({ error: error.message });
         }
     };
+
+    borrar = async (req, res) => {
+        try {
+            const resultado = await this.#servicio.borrar(req.params.id);
+            res.json(resultado);
+        } catch (error) {
+            res.status(400).json({ error: error.message });
+        }
+    };
 }
 
 export default Controlador;
