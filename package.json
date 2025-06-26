@@ -1,0 +1,23 @@
+{
+  "name": "tp2_trabajointegrador",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PabloDCesan/TP2_TrabajoIntegrador.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  
+  "bugs": {
+    "url": "https://github.com/PabloDCesan/TP2_TrabajoIntegrador/issues"
+  },
+  "homepage": "https://github.com/PabloDCesan/TP2_TrabajoIntegrador#readme"
+}
