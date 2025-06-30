@@ -19,8 +19,7 @@ class Server {
         const app = express();
 
         app.use(cors());
-        
-        // Solo parsear JSON para métodos que realmente lo necesitan
+
         app.use((req, res, next) => {
             if (['POST', 'PUT', 'PATCH'].includes(req.method)) {
                 express.json()(req, res, next);
@@ -36,8 +35,12 @@ class Server {
             await CnxMongoDB.conectar();
         }
 
-        this.#server = app.listen(this.#port, () => console.log(`Servidor escuchando en http://localhost:${this.#port}`));
-        return app;
+        this.#server = app.listen(this.#port, () => {
+            console.log(`Servidor escuchando en http://localhost:${this.#port}`);
+        });
+
+        // Devuelvo app y servidor para tests
+        return { app, server: this.#server };
     }
 
     async stop() {
@@ -48,5 +51,8 @@ class Server {
         }
     }
 }
+
+export default Server;
+
 
 export default Server;
