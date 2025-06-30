@@ -20,22 +20,25 @@ class Servicio {
     reservar = async (usuarioInfo, libroId) => {
         const usuario = await UsuarioModel.findById(usuarioInfo.id);
         if (!usuario) throw new Error('Usuario no encontrado');
-
+      
         if (usuario.librosPrestados.length >= 3) {
-            throw new Error('Ya tienes 3 libros prestados');
+          throw new Error('Ya tienes 3 libros prestados');
         }
-
+      
         const libro = await LibroModel.findById(libroId);
         if (!libro || libro.stock <= 0) throw new Error('Libro no disponible');
-
+      
         libro.stock -= 1;
         await libro.save();
-
+      
         usuario.librosPrestados.push(libroId);
         await usuario.save();
-
+      
+        // Enviar notificación por mail
+        await enviarEmailReserva(usuario, libro);
+      
         return libro;
-    };
+      };
 }
 
 export default Servicio;
