@@ -201,5 +201,6 @@ markdown
 - ✔️ Documentación Postman incluida
 
 ## Diagrama de Secuencia 
+Reserva de libro
 ![diagrama](image.png)
 
