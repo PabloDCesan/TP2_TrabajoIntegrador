@@ -126,7 +126,9 @@ describe('Pruebas completas de API de usuarios y libros', () => {
         isbn: '978-0156012195',
         editorial: 'Salamandra',
         año: 1943,
-        stock: 4
+        stock: 4,
+        stockTotal: 4, // Debe coincidir con stock inicial
+        prestados: 0 // Opcional (por el default)
       };
 
       const res = await request(app)
@@ -213,8 +215,8 @@ describe('Pruebas completas de API de usuarios y libros', () => {
 
     it('Debe crear más libros para probar límite de préstamos', async () => {
       const libros = [
-        { titulo: '1984', autor: 'George Orwell', stock: 3 },
-        { titulo: 'Cien años de soledad', autor: 'Gabriel García Márquez', stock: 2 }
+        { titulo: '1984', autor: 'George Orwell', stock: 3, stocktotal: 3, editorial: 'debolsillo' },
+        { titulo: 'Cien años de soledad', autor: 'Gabriel García Márquez', stock: 2, stocktotal: 3, editorial: 'asd' }
       ];
 
       for (const libro of libros) {

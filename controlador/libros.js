@@ -53,7 +53,7 @@ class Controlador {
             const libro = await this.#servicio.reservar(req.usuario, req.params.id);
             res.status(200).json(libro);
         } catch (error) {
-            // Mejorar manejo de errores
+  
             if (error.message.includes('Ya tienes')) {
                 res.status(400).json({ error: error.message });
             } else if (error.message.includes('No hay copias')) {
