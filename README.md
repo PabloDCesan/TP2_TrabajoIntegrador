@@ -109,36 +109,7 @@ Requieren token JWT en el header `Authorization: Bearer <token>`
 
 ## 📊 Estructura del Proyecto
 
-TP2_TrabajoIntegrador/
-├── .env
-├── .gitignore
-├── package.json
-├── README.md
-├── app.js
-├── config.js
-├── src/
-│   ├── controlador/
-│   │   ├── libros.js
-│   │   └── usuarios.js
-│   ├── modelo/
-│   │   ├── DBMongo.js
-│   │   └── DAO/
-│   │       ├── models/
-│   │       │   ├── libro.js
-│   │       │   └── usuario.js
-│   ├── routes/
-│   │   ├── libros.js
-│   │   └── usuarios.js
-│   ├── servicio/
-│   │   ├── auth.js
-│   │   ├── libros.js
-│   │   ├── rol.js
-│   │   └── usuarios.js
-│   └── Utils/
-│       ├── email.js
-│       └── emailDevolucion.js
-└── test/
-    └── api.test.js
+![estructura](image-1.png)
 
 ## 🧪 Ejecutando las Pruebas
 
