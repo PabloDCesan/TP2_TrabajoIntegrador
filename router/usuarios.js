@@ -13,9 +13,14 @@ class Router {
     start() {
         const router = express.Router();
 
-        router.post('/registro', verificarToken, soloAdmin, this.#controlador.registrar);
+        // Rutas públicas
+        router.post('/registro', this.#controlador.registrar);  // AHORA ES PÚBLICO
         router.post('/login', this.#controlador.login);
 
+        // Rutas protegidas - Usuario
+        router.get('/mis-prestamos', verificarToken, this.#controlador.misPrestamos);
+
+        // Rutas protegidas - Admin
         router.get('/', verificarToken, soloAdmin, this.#controlador.listar);
         router.get('/:id', verificarToken, soloAdmin, this.#controlador.verDetalle);
         router.put('/:id/rol', verificarToken, soloAdmin, this.#controlador.cambiarRol);

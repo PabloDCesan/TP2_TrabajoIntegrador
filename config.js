@@ -8,6 +8,12 @@ const STRCNX = process.env.STRCNX || 'mongodb://127.0.0.1';
 const BASE = process.env.BASE || 'biblioteca';
 const JWT_SECRET = process.env.JWT_SECRET || 'supersecreto';
 
+//  Nuevas variables para nodemailer en caso de usarlas en email.js de utils
+
+/* const EMAIL_USER = process.env.EMAIL_USER || '';
+   const EMAIL_PASS = process.env.EMAIL_PASS || '';
+ */
+
 export default {
     PORT,
     MODO_PERSISTENCIA,
