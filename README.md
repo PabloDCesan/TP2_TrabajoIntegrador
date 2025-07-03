@@ -1,6 +1,6 @@
 # 📚 Biblioteca  - API REST
 
-Un sistema de gestión de biblioteca digital con autenticación de usuarios, préstamos de libros y administración completa.
+Un sistema de gestión de biblioteca fisica  con autenticación de usuarios, préstamos de libros y administración.
 
 ## 🛠 Tecnologías Utilizadas
 
